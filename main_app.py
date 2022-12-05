@@ -13,7 +13,7 @@ uploaded_files = st.file_uploader("Veuillez charger une image",type=['pdf','jpg'
 
 with pdfplumber.open(uploaded_files) as pdf:
     page = pdf.pages[0]
-    text = page.extract_text()
+    final_text = page.extract_text()
      
 
 for uploaded_file in uploaded_files:
@@ -22,4 +22,5 @@ for uploaded_file in uploaded_files:
      st.write("filename:", uploaded_file.name)
      st.image(image)
  
-st.write(text)
+
+st.write(final_text)
