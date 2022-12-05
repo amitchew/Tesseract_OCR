@@ -3,7 +3,7 @@ import io
 from PIL import Image
 
 
-uploaded_files = st.file_uploader("Veuillez charger une image",type=['jpg','jpeg','png'],help="Charger une image au format jpg,jpeg,png", accept_multiple_files=True,)
+uploaded_files = st.file_uploader("Upload file",type=['pdf','jpg','jpeg','png'],help="Upload files in 'pdf','jpg','jpeg','png' format")
 
 for uploaded_file in uploaded_files:
      bytes_data = uploaded_file.read()
