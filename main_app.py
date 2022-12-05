@@ -6,7 +6,6 @@ import pdfplumber
 
 
 st.header('OCR for Sparta X')
-st.caption('Upload file in PDF format and get scanned result below')
 
 
 uploaded_files = st.file_uploader("Upload file",type=['pdf'],help="Upload files in pdf", accept_multiple_files=False,)
