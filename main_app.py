@@ -7,7 +7,7 @@ import pdfplumber
 
 
 
-uploaded_files = st.file_uploader
+uploaded_files = st.file_uploader("Veuillez charger une image",type=['pdf','jpg','jpeg','png'],help="Charger une image au format jpg,jpeg,png", accept_multiple_files=True,)
 
 
 
