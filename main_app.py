@@ -5,6 +5,8 @@ from PIL import Image
 import pdfplumber
 
 
+st.header('OCR for Sparta X')
+st.subheader('This is a subheader')
 
 
 uploaded_files = st.file_uploader("Upload file",type=['pdf'],help="Upload files in pdf", accept_multiple_files=False,)
