@@ -23,6 +23,4 @@ for uploaded_file in uploaded_files:
      st.image(image)
  
 
-output = input.upper() # final_result_from_processing_the_input
-
 st.text_area(label="Output Data:", value=final_text, height=550)
