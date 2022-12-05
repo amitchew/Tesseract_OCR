@@ -21,4 +21,4 @@ for uploaded_file in uploaded_files:
      image = Image.open(io.BytesIO(bytes_data))
      st.write("filename:", uploaded_file.name)
      st.image(image)
-st.subheader(text)
+st.write(text)
