@@ -23,4 +23,4 @@ for uploaded_file in uploaded_files:
      st.image(image)
  
 
-st.write(final_text)
+st.table(final_text)
