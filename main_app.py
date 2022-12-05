@@ -7,7 +7,7 @@ import pdfplumber
 
 
 
-uploaded_files = st.file_uploader("Veuillez charger une image",type=['pdf','jpg','jpeg','png'],help="Charger une image au format jpg,jpeg,png", accept_multiple_files=True,)
+uploaded_files = st.file_uploader("Veuillez charger une image",type=['pdf','jpg','jpeg','png'],help="Charger une image au format jpg,jpeg,png", accept_multiple_files=False,)
 
 
 
@@ -21,4 +21,4 @@ for uploaded_file in uploaded_files:
      image = Image.open(io.BytesIO(bytes_data))
      st.write("filename:", uploaded_file.name)
      st.image(image)
-     st.write(text)
+    st.write(text)
