@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 issuer: Amazon Web Services
 fields:
     amount: TOTAL AMOUNT DUE ON.*\$(\d +\.\d+)
