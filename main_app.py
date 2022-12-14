@@ -3,7 +3,11 @@ import io
 from PIL import Image
 
 import pdfplumber
+from invoice2data import extract_data
+from invoice2data.extract.loader import read_templates
 
+templates= read_templates('Template/')
+result_final= extract_data(uploaded_files, templates=templates)
 
 st.header('OCR for Sparta X')
 
@@ -19,3 +23,6 @@ with pdfplumber.open(uploaded_files) as pdf:
  
 
 st.text_area(label="Output Data:", value=final_text, height=550)
+
+st.text_area(label="Extracted Data:", value=result_final, height=550)
+
