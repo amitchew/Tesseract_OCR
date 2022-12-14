@@ -4,7 +4,7 @@ fields:
     amount: TOTAL AMOUNT DUE ON.*\$(\d +\.\d+)
     amount_untaxed: TOTAL AMOUNT DUE ON.*\$(\d +\.\d+)
     date: Invoice Date: \s+([a-zA-Z] + \d + , \d+)
-    invoice_number: Invoice Number: \s+(\d+)
+    invoice_number: "Invoice Number": \s+(\d+)
     partner_name: (Amazon Web Services, Inc\.)
     static_partner_website: aws.amazon.com
 keywords:
