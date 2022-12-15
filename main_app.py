@@ -21,7 +21,7 @@ templates= read_templates('Template/')
 with pdfplumber.open(uploaded_files) as pdf:
     page = pdf.pages[0]
     final_text = page.extract_text()
-    result_final=extract_data(page, templates=templates)
+    result_final=extract_data(final_text, templates=templates)
  
 
 # st.text_area(label="Output Data:", value=final_text, height=550)
