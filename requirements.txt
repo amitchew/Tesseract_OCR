@@ -4,4 +4,5 @@ Pillow==9.3.0
 streamlit==1.16.0
 poppler-utils==0.1.0
 python-poppler==0.3.0
+pkgconfig==1.5.5
 pdftotext==2.2.2
