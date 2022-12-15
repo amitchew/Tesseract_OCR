@@ -17,14 +17,11 @@ uploaded_files = st.file_uploader("Upload file",type=['pdf'],help="Upload files 
 
 templates= read_templates('Template/')
 # result_final= extract_data('AmazonWebServices.pdf', templates=templates)
-with pdfplumber.open(uploaded_files) as pdf1:
-    result_final=extract_data('pdf1', templates=templates)
-    
 
 with pdfplumber.open(uploaded_files) as pdf:
     page = pdf.pages[0]
     final_text = page.extract_text()
-     
+    result_final=extract_data(pdf, templates=templates)
  
 
 # st.text_area(label="Output Data:", value=final_text, height=550)
