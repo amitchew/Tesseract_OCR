@@ -16,7 +16,7 @@ uploaded_files = st.file_uploader("Upload file",type=['pdf'],help="Upload files 
 
 
 templates= read_templates('Template/')
-result_final= extract_data(uploaded_files, templates=templates)
+result_final= extract_data(uploaded_files[0], templates=templates)
 
 
 with pdfplumber.open(uploaded_files) as pdf:
