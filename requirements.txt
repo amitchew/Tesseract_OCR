@@ -1,4 +1,4 @@
-python-poppler==0.2.1
+python-poppler==0.3.0
 pkgconfig==1.5.5
 invoice2data==0.4.0
 pdfplumber==0.7.6
