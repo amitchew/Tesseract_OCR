@@ -10,11 +10,14 @@ from invoice2data.extract.loader import read_templates
 
 st.header('OCR for Sparta X')
 
-templates= read_templates('Template/')
-result_final= extract_data(uploaded_files, templates=templates)
 
 
 uploaded_files = st.file_uploader("Upload file",type=['pdf'],help="Upload files in pdf", accept_multiple_files=False,)
+
+
+templates= read_templates('Template/')
+result_final= extract_data(uploaded_files, templates=templates)
+
 
 with pdfplumber.open(uploaded_files) as pdf:
     page = pdf.pages[0]
