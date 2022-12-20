@@ -2,9 +2,7 @@ import streamlit as st
 import io
 from PIL import Image
 import pdfplumber
-import PyMuPDF
-
-from PyMuPDF import fitz
+import fitz
 import json
 import tabula
 from tabula import convert_into
