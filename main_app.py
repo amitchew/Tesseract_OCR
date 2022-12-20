@@ -1,12 +1,48 @@
 import streamlit as st
 import io
 from PIL import Image
-
 import pdfplumber
-from invoice2data import extract_data
-from invoice2data.extract.loader import read_templates
+
+import fitz
+import json
+import tabula
+from tabula import convert_into
+import pandas as pd
 
 
+tabula.convert_into(file, "output.csv", output_format="csv", pages='all')
+df = pd.read_csv("output.csv")
+df['id']=df.index
+df.to_csv("output.csv"),
+
+##
+import csv, json
+csvFilePath='output.csv'
+data= {}
+
+with open(csvFilePath) as csvFile:
+  csvReader = csv.DictReader(csvFile)
+  for rows in csvReader:
+    id = rows["id"]
+    data[id]= rows
+table_output=json.dumps(data,indent=4)
+
+##
+with fitz.open(file) as doc:
+    for page in doc:
+        text = page.get_text("blocks")
+  
+##
+res = [lis[4] for lis in text]
+##
+total =  {
+     "Invoice_Number":res[1], 
+     "Invoice_Date":res[6],
+     "Issuer":res[3],
+     "Bill_to": res[5]
+      }
+header = json.dumps(total)
+##
 
 st.header('OCR for Sparta X')
 
@@ -15,17 +51,17 @@ st.header('OCR for Sparta X')
 uploaded_files = st.file_uploader("Upload file",type=['pdf'],help="Upload files in pdf", accept_multiple_files=False,)
 
 
-templates= read_templates('Template/')
-result_final= extract_data('AmazonWebServices.pdf', templates=templates)
-
-# with pdfplumber.open(uploaded_files) as pdf:
-#     page = pdf.pages[0]
-#     final_text = page.extract_text()
-#     result_final=extract_data(final_text, templates=templates)
+with pdfplumber.open(uploaded_files) as pdf:
+    page = pdf.pages[0]
+    final_text = page.extract_text()
+    result_final=extract_data(final_text, templates=templates)
  
 
-# st.text_area(label="Output Data:", value=final_text, height=550)
+st.text_area(label="Output Data:", value=final_text, height=550)
 
-st.text_area(label="Extracted Data:", value=result_final, height=250)
-# st.header(result_final)
+
+st.text_area(label="Header:", value=header, height=550)
+
+
+st.text_area(label="Table:", value=table_output, height=550)
 
