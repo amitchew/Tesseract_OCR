@@ -10,6 +10,17 @@ from tabula import convert_into
 import pandas as pd
 
 
+uploaded_files = st.file_uploader("Upload file",type=['pdf'],help="Upload files in pdf", accept_multiple_files=False,)
+
+
+with pdfplumber.open(uploaded_files) as pdf:
+    file = pdf.pages[0]
+    final_text = file.extract_text()
+    result_final=extract_data(final_text, templates=templates)
+ 
+
+
+
 tabula.convert_into(file, "output.csv", output_format="csv", pages='all')
 df = pd.read_csv("output.csv")
 df['id']=df.index
@@ -48,14 +59,7 @@ st.header('OCR for Sparta X')
 
 
 
-uploaded_files = st.file_uploader("Upload file",type=['pdf'],help="Upload files in pdf", accept_multiple_files=False,)
 
-
-with pdfplumber.open(uploaded_files) as pdf:
-    page = pdf.pages[0]
-    final_text = page.extract_text()
-    result_final=extract_data(final_text, templates=templates)
- 
 
 st.text_area(label="Output Data:", value=final_text, height=550)
 
